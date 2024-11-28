@@ -1,3 +1,4 @@
+/*
 terraform {
     backend "s3" {
         bucket = "bdo-malguswaf-class5"
@@ -5,3 +6,4 @@ terraform {
         region = "eu-west-1"      
 }
 }
+*/

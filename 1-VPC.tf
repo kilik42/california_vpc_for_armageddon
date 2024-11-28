@@ -1,9 +1,9 @@
-# this  makes  vpc.id which is aws_vpc.app1.id
-resource "aws_vpc" "app1" {
-  cidr_block = "10.32.0.0/16"
+# this  makes  vpc.id which is aws_vpc.Hong-Kong_VPC.id
+resource "aws_vpc" "Hong-Kong_VPC" {
+  cidr_block = "10.105.0.0/16"
 
   tags = {
-    Name = "app1"
+    Name = "Hong-Kong_VPC"
     Service = "application1"
     Owner = "Chewbacca"
     Planet = "Mustafar"

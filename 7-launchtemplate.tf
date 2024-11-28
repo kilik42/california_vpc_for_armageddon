@@ -1,11 +1,11 @@
-resource "aws_launch_template" "app1_LT" {
-  name_prefix   = "app1_LT"
-  image_id      = "ami-06ed60ed1369448bd"  
+resource "aws_launch_template" "Hong-Kong_LT" {
+  name_prefix   = "Hong-Kong_LT"
+  image_id      = "ami-06f707739f2271995"  
   instance_type = "t2.micro"
 
-  key_name = "MyLinuxBox"
+  key_name = "Hong-Kong-Box"
 
-  vpc_security_group_ids = [aws_security_group.app1-sg01-servers.id]
+  vpc_security_group_ids = [aws_security_group.Hong-Kong-sg01-tg01.id]
 
   user_data = base64encode(<<-EOF
     #!/bin/bash
@@ -37,8 +37,8 @@ resource "aws_launch_template" "app1_LT" {
     </head>
     <body>
     <div>
-    <h1>Malgus Clan</h1>
-    <h1>Chains Broken in Ireland</h1>
+    <h1>Hong Kong VPC</h1>
+    <h1>Armageddon Participant</h1>
     <p><b>Instance Name:</b> $(hostname -f) </p>
     <p><b>Instance Private Ip Address: </b> $local_ipv4</p>
     <p><b>Availability Zone: </b> $az</p>
@@ -56,7 +56,7 @@ resource "aws_launch_template" "app1_LT" {
   tag_specifications {
     resource_type = "instance"
     tags = {
-      Name    = "app1_LT"
+      Name    = "Hong-Kong_LT"
       Service = "application1"
       Owner   = "Chewbacca"
       Planet  = "Mustafar"

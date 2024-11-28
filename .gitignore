@@ -1,0 +1,10 @@
+# local .terraform dir & lock file
+.terraform/*
+.terraform.lock.*
+
+# tf state files
+*.tfstate
+*.tfstate.*
+
+# tf variable files, may include sensitive data
+*.tfvars

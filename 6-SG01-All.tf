@@ -1,7 +1,7 @@
-resource "aws_security_group" "app1-sg01-servers" {
-  name        = "app1-sg01-servers"
-  description = "app1-sg01-servers"
-  vpc_id      = aws_vpc.app1.id
+resource "aws_security_group" "Hong-Kong-sg01-tg01" {
+  name        = "Hong-Kong-sg01-tg01"
+  description = "Hong-Kong-sg01-tg01"
+  vpc_id      = aws_vpc.Hong-Kong_VPC.id
 
   ingress {
     description = "MyHomePage"
@@ -27,6 +27,13 @@ resource "aws_security_group" "app1-sg01-servers" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+   ingress {
+    description = "Syslog"
+    from_port   = 514
+    to_port     = 514
+    protocol    = "udp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 
   egress {
     from_port   = 0
@@ -36,7 +43,7 @@ resource "aws_security_group" "app1-sg01-servers" {
   }
 
   tags = {
-    Name    = "app1-sg01-servers"
+    Name    = "Hong-Kong-sg01-tg01"
     Service = "application1"
     Owner   = "Luke"
     Planet  = "Musafar"
@@ -48,10 +55,10 @@ resource "aws_security_group" "app1-sg01-servers" {
 
 
 
-resource "aws_security_group" "app1-sg02-LB01" {
-  name        = "app1-sg02-LB01"
-  description = "app1-sg02-LB01"
-  vpc_id      = aws_vpc.app1.id
+resource "aws_security_group" "Hong-Kong-sg02-LB01" {
+  name        = "Hong-Kong_VPC-sg02-LB01"
+  description = "Hong-Kong_VPC-sg02-LB01"
+  vpc_id      = aws_vpc.Hong-Kong_VPC.id
 
   ingress {
     description = "MyHomePage"
@@ -69,7 +76,7 @@ resource "aws_security_group" "app1-sg02-LB01" {
   }
 
   tags = {
-    Name    = "app1-sg02-LB01"
+    Name    = "Hong-Kong_VPC-sg02-LB01"
     Service = "application1"
     Owner   = "Luke"
     Planet  = "Musafar"

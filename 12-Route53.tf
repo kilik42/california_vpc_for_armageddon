@@ -1,4 +1,4 @@
-
+/*
 data "aws_route53_zone" "main" {
   name         = "revanwar.com"  # The domain name you want to look up
   private_zone = false
@@ -16,3 +16,4 @@ resource "aws_route53_record" "www" {
     evaluate_target_health = true
   }
 }
+*/

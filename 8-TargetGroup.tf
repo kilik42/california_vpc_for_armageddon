@@ -1,8 +1,8 @@
-resource "aws_lb_target_group" "app1_tg" {
-  name     = "app1-target-group"
+resource "aws_lb_target_group" "Hong-Kong_tg" {
+  name     = "Hong-Kong-target-group"
   port     = 80
   protocol = "HTTP"
-  vpc_id   = aws_vpc.app1.id
+  vpc_id   = aws_vpc.Hong-Kong_VPC.id
   target_type = "instance"
 
   health_check {
@@ -17,8 +17,8 @@ resource "aws_lb_target_group" "app1_tg" {
   }
 
   tags = {
-    Name    = "App1TargetGroup"
-    Service = "App1"
+    Name    = "Hong-Kong_VPCTargetGroup"
+    Service = "Hong-Kong_VPC"
     Owner   = "User"
     Project = "Web Service"
   }
