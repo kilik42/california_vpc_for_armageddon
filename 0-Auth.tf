@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "eu-west-1"
+  region = "ap-east-1"
 }
 
 terraform {
