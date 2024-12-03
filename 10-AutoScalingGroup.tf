@@ -4,9 +4,9 @@ resource "aws_autoscaling_group" "Califorinia_asg" {
   max_size              = 9
   desired_capacity      = 6
   vpc_zone_identifier   = [
-    aws_subnet.private-ap-east-1a.id,
-    aws_subnet.private-ap-east-1b.id,
-    aws_subnet.private-ap-east-1c.id
+    aws_subnet.private-us-west-1a.id,
+    aws_subnet.private-us-west-1b.id,
+    aws_subnet.private-us-west-1c.id
   ]
   health_check_type          = "ELB"
   health_check_grace_period  = 300
