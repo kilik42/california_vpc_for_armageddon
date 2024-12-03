@@ -1,7 +1,7 @@
-resource "aws_security_group" "Hong-Kong-sg01-tg01" {
-  name        = "Hong-Kong-sg01-tg01"
-  description = "Hong-Kong-sg01-tg01"
-  vpc_id      = aws_vpc.Hong-Kong_VPC.id
+resource "aws_security_group" "Califorinia-sg01-tg01" {
+  name        = "Califorinia-sg01-tg01"
+  description = "Califorinia-sg01-tg01"
+  vpc_id      = aws_vpc.Califorinia_VPC.id
 
   ingress {
     description = "MyHomePage"
@@ -43,10 +43,10 @@ resource "aws_security_group" "Hong-Kong-sg01-tg01" {
   }
 
   tags = {
-    Name    = "Hong-Kong-sg01-tg01"
-    Service = "application1"
-    Owner   = "Luke"
-    Planet  = "Musafar"
+    Name    = "Califorinia-sg01-tg01"
+    Service = "security group for cali for target group 1"
+    Owner = "Marvin"
+    Planet = "CaliLife"
   }
 
 }
@@ -55,10 +55,10 @@ resource "aws_security_group" "Hong-Kong-sg01-tg01" {
 
 
 
-resource "aws_security_group" "Hong-Kong-sg02-LB01" {
-  name        = "Hong-Kong_VPC-sg02-LB01"
-  description = "Hong-Kong_VPC-sg02-LB01"
-  vpc_id      = aws_vpc.Hong-Kong_VPC.id
+resource "aws_security_group" "Califorinia-sg02-LB01" {
+  name        = "Califorinia_VPC-sg02-LB01"
+  description = "Califorinia_VPC-sg02-LB01"
+  vpc_id      = aws_vpc.Califorinia_VPC.id
 
   ingress {
     description = "MyHomePage"
@@ -76,10 +76,10 @@ resource "aws_security_group" "Hong-Kong-sg02-LB01" {
   }
 
   tags = {
-    Name    = "Hong-Kong_VPC-sg02-LB01"
-    Service = "application1"
-    Owner   = "Luke"
-    Planet  = "Musafar"
+    Name    = "Califorinia_VPC-sg02-LB01"
+    Service = "applicationforcali"
+    Owner = "Marvin"
+    Planet = "CaliLife"
   }
 
 }

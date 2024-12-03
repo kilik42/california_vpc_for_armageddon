@@ -1,32 +1,32 @@
-resource "aws_lb" "Hong-Kong_alb" {
-  name               = "Hong-Kong-load-balancer"
+resource "aws_lb" "Califorinia_alb" {
+  name               = "Califorinia-load-balancer"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [aws_security_group.Hong-Kong-sg02-LB01.id]
+  security_groups    = [aws_security_group.Califorinia-sg02-LB01.id]
   subnets            = [
-    aws_subnet.public-ap-east-1a.id,
-    aws_subnet.public-ap-east-1b.id,
-    aws_subnet.public-ap-east-1c.id
+    aws_subnet.public-us-west-1a.id,
+    aws_subnet.public-us-west-1b.id,
+    aws_subnet.public-us-west-1c.id
   ]
   enable_deletion_protection = false
 #Lots of death and suffering here, make sure it's false
 
   tags = {
-    Name    = "Hong-KongLoadBalancer"
-    Service = "Hong-Kong"
+    Name    = "CaliforiniaLoadBalancer"
+    Service = "Califorinia"
     Owner   = "User"
     Project = "Web Service"
   }
 }
 
 resource "aws_lb_listener" "http" {
-  load_balancer_arn = aws_lb.Hong-Kong_alb.arn
+  load_balancer_arn = aws_lb.Califorinia_alb.arn
   port              = 80
   protocol          = "HTTP"
 
   default_action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.Hong-Kong_tg.arn
+    target_group_arn = aws_lb_target_group.Califorinia_tg.arn
   }
 }
 
@@ -39,7 +39,7 @@ data "aws_acm_certificate" "cert" {
 
 
 resource "aws_lb_listener" "https" {
-  load_balancer_arn = aws_lb.Hong-Kong_alb.arn
+  load_balancer_arn = aws_lb.Califorinia_alb.arn
   port              = 443
   protocol          = "HTTPS"
   ssl_policy        = "ELBSecurityPolicy-2016-08"  # or whichever policy suits your requirements
@@ -49,12 +49,12 @@ resource "aws_lb_listener" "https" {
 
   default_action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.Hong-Kong_tg.arn
+    target_group_arn = aws_lb_target_group.Califorinia_tg.arn
   }
 }
 */
 
 output "lb_dns_name" {
-  value       = aws_lb.Hong-Kong_alb.dns_name
-  description = "The DNS name of the Hong-Kong Load Balancer."
+  value       = aws_lb.Califorinia_alb.dns_name
+  description = "The DNS name of the Califorinia Load Balancer."
 }

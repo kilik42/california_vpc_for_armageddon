@@ -1,5 +1,5 @@
-resource "aws_autoscaling_group" "Hong-Kong_asg" {
-  name_prefix           = "Hong-Kong-auto-scaling-group-"
+resource "aws_autoscaling_group" "Califorinia_asg" {
+  name_prefix           = "Califorinia-auto-scaling-group-"
   min_size              = 3
   max_size              = 9
   desired_capacity      = 6
@@ -11,10 +11,10 @@ resource "aws_autoscaling_group" "Hong-Kong_asg" {
   health_check_type          = "ELB"
   health_check_grace_period  = 300
   force_delete               = true
-  target_group_arns          = [aws_lb_target_group.Hong-Kong_tg.arn]
+  target_group_arns          = [aws_lb_target_group.Califorinia_tg.arn]
 
   launch_template {
-    id      = aws_launch_template.Hong-Kong_LT.id
+    id      = aws_launch_template.Califorinia_LT.id
     version = "$Latest"
   }
 
@@ -39,7 +39,7 @@ resource "aws_autoscaling_group" "Hong-Kong_asg" {
 
   tag {
     key                 = "Name"
-    value               = "Hong-Kong-instance"
+    value               = "Califorinia-instance"
     propagate_at_launch = true
   }
 
@@ -52,9 +52,9 @@ resource "aws_autoscaling_group" "Hong-Kong_asg" {
 
 
 # Auto Scaling Policy
-resource "aws_autoscaling_policy" "Hong-Kong_scaling_policy" {
-  name                   = "Hong-Kong-cpu-target"
-  autoscaling_group_name = aws_autoscaling_group.Hong-Kong_asg.name
+resource "aws_autoscaling_policy" "Califorinia_scaling_policy" {
+  name                   = "Califorinia-cpu-target"
+  autoscaling_group_name = aws_autoscaling_group.Califorinia_asg.name
 
   policy_type = "TargetTrackingScaling"
   estimated_instance_warmup = 120
@@ -68,7 +68,8 @@ resource "aws_autoscaling_policy" "Hong-Kong_scaling_policy" {
 }
 
 # Enabling instance scale-in protection
-resource "aws_autoscaling_attachment" "Hong-Kong_asg_attachment" {
-  autoscaling_group_name = aws_autoscaling_group.Hong-Kong_asg.name
-  alb_target_group_arn   = aws_lb_target_group.Hong-Kong_tg.arn
+resource "aws_autoscaling_attachment" "Califorinia_asg_attachment" {
+  autoscaling_group_name = aws_autoscaling_group.Califorinia_asg.name
+  # alb_target_group_arn   = aws_lb_target_group.Califorinia_tg.arn
+  
 }

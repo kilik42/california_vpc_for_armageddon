@@ -1,8 +1,8 @@
-resource "aws_lb_target_group" "Hong-Kong_tg" {
-  name     = "Hong-Kong-target-group"
+resource "aws_lb_target_group" "Califorinia_tg" {
+  name     = "Califorinia-target-group"
   port     = 80
   protocol = "HTTP"
-  vpc_id   = aws_vpc.Hong-Kong_VPC.id
+  vpc_id   = aws_vpc.Califorinia_VPC.id
   target_type = "instance"
 
   health_check {
@@ -17,8 +17,8 @@ resource "aws_lb_target_group" "Hong-Kong_tg" {
   }
 
   tags = {
-    Name    = "Hong-Kong_VPCTargetGroup"
-    Service = "Hong-Kong_VPC"
+    Name    = "Califorinia_VPCTargetGroup"
+    Service = "Califorinia_VPC"
     Owner   = "User"
     Project = "Web Service"
   }
