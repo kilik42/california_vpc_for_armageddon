@@ -5,7 +5,7 @@ resource "aws_autoscaling_group" "Califorinia_asg" {
   desired_capacity      = 6
   vpc_zone_identifier   = [
     aws_subnet.private-us-west-1a.id,
-    aws_subnet.private-us-west-1b.id,
+    
     aws_subnet.private-us-west-1c.id
   ]
   health_check_type          = "ELB"

@@ -14,19 +14,19 @@ resource "aws_subnet" "public-us-west-1a" {
   }
 }
 
-resource "aws_subnet" "public-us-west-1b" {
-  vpc_id                  = aws_vpc.Califorinia_VPC.id
-  cidr_block              = "10.106.2.0/24"
-  availability_zone       = "us-west-1b"
-  map_public_ip_on_launch = true
+# resource "aws_subnet" "public-us-west-1c" {
+#   vpc_id                  = aws_vpc.Califorinia_VPC.id
+#   cidr_block              = "10.106.3.0/24"
+#   availability_zone       = "us-west-1c"
+#   map_public_ip_on_launch = true
 
-  tags = {
-    Name    = "public-us-west-1b"
-    Service = "applicationforcali"
-    Owner   = "Marvin"
-    Planet  = "CaliLife"
-  }
-}
+#   tags = {
+#     Name    = "public-us-west-1c"
+#     Service = "applicationforcali"
+#     Owner   = "Marvin"
+#     Planet  = "CaliLife"
+#   }
+# }
 
 resource "aws_subnet" "public-us-west-1c" {
   vpc_id                  = aws_vpc.Califorinia_VPC.id
@@ -57,18 +57,18 @@ resource "aws_subnet" "private-us-west-1a" {
   }
 }
 
-resource "aws_subnet" "private-us-west-1b" {
-  vpc_id            = aws_vpc.Califorinia_VPC.id
-  cidr_block        = "10.106.12.0/24"
-  availability_zone = "us-west-1b"
+# resource "aws_subnet" "private-us-west-1b" {
+#   vpc_id            = aws_vpc.Califorinia_VPC.id
+#   cidr_block        = "10.106.12.0/24"
+#   availability_zone = "us-west-1b"
 
-  tags = {
-    Name    = "private-us-west-1b"
-    Service = "applicationforcali"
-    Owner   = "Marvin"
-    Planet  = "CaliLife"
-  }
-}
+#   tags = {
+#     Name    = "private-us-west-1b"
+#     Service = "applicationforcali"
+#     Owner   = "Marvin"
+#     Planet  = "CaliLife"
+#   }
+# }
 
 
 resource "aws_subnet" "private-us-west-1c" {

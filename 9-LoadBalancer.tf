@@ -5,7 +5,7 @@ resource "aws_lb" "Califorinia_alb" {
   security_groups    = [aws_security_group.Califorinia-sg02-LB01.id]
   subnets            = [
     aws_subnet.public-us-west-1a.id,
-    aws_subnet.public-us-west-1b.id,
+  
     aws_subnet.public-us-west-1c.id
   ]
   enable_deletion_protection = false
