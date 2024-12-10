@@ -18,12 +18,13 @@ The Armageddon Project aims to expand telemedicine services for Japanese and int
 - **Subnets**:
   - Public:
     - `10.106.1.0/24` (AZ 1)
-    - `10.106.2.0/24` (AZ 2)
+    - `10.106.3.0/24` (AZ 2)
   - Private (Syslog Data & Backend Instances):
     - `10.106.101.0/24` (AZ 1)
-    - `10.106.102.0/24` (AZ 2)
+    - `10.106.103.0/24` (AZ 2)
 - **Internet Gateway**: Provides connectivity for public resources.
 - **NAT Gateway**: Secures internet access for private subnets.
+- ** I found that I could only use 1a and 1c for public and private as b was not allowed. Some trouble shooting was required
 
 ### Compute
 - **Auto Scaling Group (ASG)**:
@@ -32,9 +33,9 @@ The Armageddon Project aims to expand telemedicine services for Japanese and int
   - Desired: 3 Instances
   - Multi-AZ Deployment for Fault Tolerance
 - **EC2 Instances**:
-  - Instance Type: `t3.micro` (for test deployment)
+  - Instance Type: `t2.micro` (for test deployment)
   - AMI: Amazon Linux 2
-  - Configured for Syslog Integration
+
 
 ### Security
 - **Security Groups**:
@@ -77,7 +78,7 @@ The Armageddon Project aims to expand telemedicine services for Japanese and int
 | **Requirement**                 | **California VPC Contribution**                                 |
 |----------------------------------|----------------------------------------------------------------|
 | Deploy ASG with a minimum of 2 AZs | Configured ASG spans two AZs with redundancy.                 |
-| Deploy at least 1 EC2 for testing  | Includes one `t3.micro` instance for testing.                |
+| Deploy at least 1 EC2 for testing  | Includes one t2.micro instance for testing.                |
 | Transfer syslog data securely      | Isolated syslog data in private subnets, ready for transfer.  |
 | Open only Port 80                  | Security groups restrict public access to Port 80.           |
 | Store syslog data in private subnets | Ensures compliance with data privacy requirements.         |
