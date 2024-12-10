@@ -20,11 +20,11 @@ The Armageddon Project aims to expand telemedicine services for Japanese and int
     - `10.106.1.0/24` (AZ 1)
     - `10.106.3.0/24` (AZ 2)
   - Private (Syslog Data & Backend Instances):
-    - `10.106.101.0/24` (AZ 1)
-    - `10.106.103.0/24` (AZ 2)
+    - `10.106.11.0/24` (AZ 1) (us-west-1a)
+    - `10.106.13.0/24` (AZ 2) (us-west-1c)
 - **Internet Gateway**: Provides connectivity for public resources.
 - **NAT Gateway**: Secures internet access for private subnets.
-- ** I found that I could only use 1a and 1c for public and private as b was not allowed. Some trouble shooting was required
+- **I found that I could only use 1a and 1c for public and private as b was not allowed. Some trouble shooting was required
 
 ### Compute
 - **Auto Scaling Group (ASG)**:
