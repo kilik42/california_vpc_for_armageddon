@@ -28,9 +28,9 @@ The Armageddon Project aims to expand telemedicine services for Japanese and int
 
 ### Compute
 - **Auto Scaling Group (ASG)**:
-  - Minimum: 2 Instances
-  - Maximum: 6 Instances
-  - Desired: 3 Instances
+  - Minimum: 3 Instances
+  - Maximum: 9 Instances
+  - Desired: 6 Instances
   - Multi-AZ Deployment for Fault Tolerance
 - **EC2 Instances**:
   - Instance Type: `t2.micro` (for test deployment)
@@ -50,26 +50,6 @@ The Armageddon Project aims to expand telemedicine services for Japanese and int
 ### Outputs
 - VPC ID and Subnet IDs
 - Load Balancer DNS for Application Access
-
----
-
-## Deployment Instructions
-
-1. **Initialize Terraform**:
-   ```bash
-   terraform init
-   ```
-2. **Plan the Deployment**:
-   ```bash
-   terraform plan
-   ```
-3. **Apply the Configuration**:
-   ```bash
-   terraform apply
-   ```
-4. **Verify Outputs**:
-   - Access the application via the load balancer.
-   - Verify resources in the AWS console.
 
 ---
 
